@@ -26,6 +26,11 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:HOST')->group(function () {
         Route::get('/host/laporan', [HostController::class, 'create'])->name('host.laporan.create');
         Route::post('/host/laporan', [HostController::class, 'store'])->name('host.laporan.store');
+        Route::get('/host/laporan/{id}/edit', [HostController::class, 'edit'])->name('host.laporan.edit');
+        Route::put('/host/laporan/{id}', [HostController::class, 'update'])->name('host.laporan.update');
+        Route::delete('/host/laporan/{id}', [HostController::class, 'destroy'])->name('host.laporan.destroy');
+        Route::get('/host/laporan/{id}/history', [HostController::class, 'history'])->name('host.laporan.history');
+        Route::get('/host/activities', [HostController::class, 'activities'])->name('host.activities');
     });
 
     // Routes khusus MANAJER (hanya bisa diakses oleh user dengan role 'MANAJER')
