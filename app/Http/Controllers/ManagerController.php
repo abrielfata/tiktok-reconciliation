@@ -43,12 +43,12 @@ class ManagerController extends Controller
 
         // Pagination - 15 data per halaman
         // withQueryString() untuk retain filter di pagination links
-        $rekonsiliasi = $query->paginate(15)->withQueryString();
+        $data = $query->paginate(15)->withQueryString();
 
         // Hitung statistik untuk dashboard summary
-        $statistics = $this->getStatistics($request);
+        $stats = $this->getStatistics($request);
 
-        return view('manager.dashboard', compact('rekonsiliasi', 'statistics'));
+        return view('manager.dashboard', compact('data', 'stats'));
     }
 
     /**
